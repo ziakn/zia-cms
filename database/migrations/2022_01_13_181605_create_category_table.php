@@ -17,7 +17,7 @@ class CreateCategoryTable extends Migration
             $table->id()->index();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->integer('parent_id')->nullable();
+            $table->integer('parent_id')->default(0);
             $table->integer('sort')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->string('link')->nullable();
