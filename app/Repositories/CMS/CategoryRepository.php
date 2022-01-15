@@ -30,7 +30,6 @@ class CategoryRepository
         $response=array();
         $response["status"]=false;
         $response["data"] ="";
-        $auth_id = Auth::id();
         DB::beginTransaction();
         try {
             $response["data"]=Category::create([

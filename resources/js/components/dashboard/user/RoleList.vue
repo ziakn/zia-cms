@@ -21,8 +21,8 @@
 					<v-data-table color="white" :headers="headers" :items="dataList" :search="search"  class="elevation-12" :items-per-page="20" :hide-default-footer="true">>
 						
 							<template v-slot:[`item.action`]="{ item }">
-								<v-icon color="blue"   medium @click="editItem(item)" >edit</v-icon>
-							<v-icon color="red" v-if="$can('category-delete')"   medium @click="deleteItem(item)" >delete</v-icon>
+								<v-icon color="blue" v-if="$can('role-edit')"   medium @click="editItem(item)" >edit</v-icon>
+							<v-icon color="red" v-if="$can('role-delete')"   medium @click="deleteItem(item)" >delete</v-icon>
 						</template>
 						<template v-slot:no-data>
 							<NoDataList :loading="loading" @initialize="initialize"></NoDataList>
@@ -37,7 +37,7 @@
                             </div>
 				</v-col>
 			</v-row>
-			<v-btn bottom  color="primary" dark fab fixed right @click="dialog = !dialog">
+			<v-btn bottom v-if="$can('role-create')"  color="primary" dark fab fixed right @click="dialog = !dialog">
 				<v-icon>mdi-plus</v-icon>
 			</v-btn>
 		</v-container>
@@ -51,7 +51,6 @@
          		 </v-card >
                 <v-card-title>
                 </v-card-title>
-
                 <v-card-text>
                     <v-container grid-list-md>
                         <v-layout wrap>
@@ -70,42 +69,15 @@
                     </v-container>
                 </v-card-text>
 				<v-card-text>
-               <v-simple-table>
-				<template v-slot:default>
-				<thead>
-					<tr>
-					<th class="text-left">
-						Page Name
-					</th>
-					<th class="text-left">
-						List
-					</th>
-					<th class="text-left">
-						Create
-					</th>
-					<th class="text-left">
-						Edit
-					</th>
-					<th class="text-left">
-						Delete
-					</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr v-for="(data, index) in dataPermission" :key="index">
-						<td>
+				<v-row justify="center" >
+				<v-col sm="3" md="3" lg="3" v-for="(data, index) in dataPermission" :key="index">
 							<v-checkbox
 								v-model="editedItem.permission"
 								:label="data.name"
 								:value="data.id"
 								></v-checkbox>
-						</td>
-						
-					</tr>
-					
-				</tbody>
-				</template>
-			</v-simple-table>
+				</v-col>
+				</v-row>
                 </v-card-text>
 
                 <v-card-actions>
@@ -214,36 +186,16 @@ export default {
 	created() 
 	{
 		this.initialize();
-		this.getPermission();
 	},
 
 	methods: {
 		async initialize() 
 		{
 			this.getRole();
-			this.getPage();
+			this.getPermission();
 		},
 
-		async getPage()
-		{
-			this.start();
-			try 
-			{
-				let { data } = await axios({
-					method: "get",
-					url: "/app/page",
-				});
-			} 
-			catch (e) 
-			{
-				this.fail();
-			}
-			finally
-			{
-				this.finish();
-			}
-		},
-
+	
 		async getRole()
 		{
 			this.start();
@@ -279,7 +231,6 @@ export default {
 					url: "/app/permission",
 				});
 				this.dataPermission = data;
-				
 			} 
 			catch (e) 
 			{
@@ -301,18 +252,14 @@ export default {
 			this.getRoleValues(item);
 			this.dialog = true;
 		},
-
-
 		async getRoleValues(item)
 		{
 			try {
 				let { data } = await axios({
 					method: "get",
 					url: "/app/roles/"+item.id+"/edit",
-				
 				});
 				 this.editedItem.permission =  Object.values(data.rolePermissions);
-				
 			} 
 			catch (e) 
 			{
@@ -334,7 +281,6 @@ export default {
 			this.loading = false;
 			setTimeout(() => {
 				this.editedItem = Object.assign({}, this.defaultItem);
-				this.getPage();
 				this.editedIndex = -1;
 			}, 300);
 		},

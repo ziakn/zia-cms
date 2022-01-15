@@ -32,25 +32,33 @@ class RoleController extends Controller
         }
         return $data;
     }
-    public function create()
+    public function getpermission()
     {
         $data = Permission::get();
         return $data;
     }
     public function store(Request $request)
     {
+        $response=array();
+        $response["status"]=false;
+        $response["data"] ="";
         $this->validate($request, [
             'name' => 'required|unique:roles,name',
             'permission' => 'required',
         ]);
-    
-        $role = Role::create(['name' => $request->input('name')]);
-        $role->syncPermissions($request->input('permission'));
+        DB::beginTransaction();
+        try {
+            $response["data"] = Role::create(['name' => $request->input('name')]);
+            $response["data"]->syncPermissions($request->input('permission'));
+            DB::commit();
+            $response["status"] = true;
+        } catch (\Exception $e) {
+            $response["data"]=$e->getMessage();
+            $response["status"] = false;
+            DB::rollback();
+        }
 
-        // return redirect()->route('roles.index')
-        //                 ->with('success','Role created successfully');
-    
-        return $role;
+        return response()->json($response);
     }
     public function show($id)
     {
@@ -75,28 +83,43 @@ class RoleController extends Controller
     }
     public function update(Request $request, $id)
     {
+
+        $response=array();
+        $response["status"]=false;
+        $response["data"] ="";
         $this->validate($request, [
             'name' => 'required',
             'permission' => 'required',
         ]);
+        DB::beginTransaction();
+        try
+        {
+            $response["data"] = Role::find($id);
+            $response["data"]->name = $request->input('name');
+            $response["data"]->save();
     
-        $role = Role::find($id);
-        $role->name = $request->input('name');
-        $role->save();
+            $response["data"]->syncPermissions($request->input('permission'));
     
-        $role->syncPermissions($request->input('permission'));
-    
-        // return redirect()->route('roles.index')
-        //                 ->with('success','Role updated successfully');
-        return $role;
+        DB::commit();
+        $response["status"] = true;
+    }
+    catch (\Exception $e)
+    {
+        $response["data"]=$e->getMessage().", line:".$e->getLine();
+        $response["status"] = false;
+        DB::rollback();
+    }
+
+    return response()->json($response);
 
     }
     public function destroy($id)
     {
-        $data=DB::table("roles")->where('id',$id)->delete();
-        // return redirect()->route('roles.index')
-        //                 ->with('success','Role deleted successfully');
-        return $data;
+        $response=array();
+        $response["status"]=false;
+        $response["data"]=DB::table("roles")->where('id',$id)->delete();
+        $response["status"]=true;
+        return response()->json($response);
     }
 }
         

@@ -28,7 +28,7 @@ Route::get('/logoutuser', [UserController::class, 'logout']);
 
 Route::middleware(['auth'])->prefix('/app')->group(function () {
     Route::resource('roles', RoleController::class);
-    Route::get('permission', [RoleController::class, 'create']);
+    Route::get('permission', [RoleController::class, 'getpermission']);
     Route::resource('user', UserController::class);
     Route::resource('category', CategoryController::class);
 });
