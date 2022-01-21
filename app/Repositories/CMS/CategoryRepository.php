@@ -18,7 +18,24 @@ class CategoryRepository
         //$data=Category::get();
         //return $data;
         
-        $data = Category::paginate(10);
+        $data = Category::orderBy('sort','ASC');
+        if(isset($request->parent_id) && !empty($request->parent_id))
+        {
+            $data=$data->where('parent_id',  $request->parent_id);
+        }   
+        if(isset($request->search) && !empty($request->search))
+        {
+            $data=$data->where('title',  $request->search);
+        } 
+        if(isset($request->show) && !empty($request->show))
+        {
+            $show=$request->show;
+            $data=$data->paginate($show);
+        }
+        else
+        {
+            $data=$data->get();
+        }
         return $data;
     }
     public function create()

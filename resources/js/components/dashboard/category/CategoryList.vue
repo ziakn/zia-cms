@@ -12,19 +12,36 @@
 					label="Search"
 					hide-details
 					outlined 
+					dense
 				></v-text-field>
             </ToolbarLeft>
 			<Breadcrumbs/>
+			    <v-row >
+                      <v-col sm="6" md="6" lg="6">
+                            <v-select
+                                v-model="filters.parent_id"
+                                :items="dataCategory"
+                                item-text="title"
+                                item-value="id"
+                                label="Filter Category"
+                                required
+							    clearable
+                                outlined
+								dense
+								hide-details
+						        @change="getCategory"
+                            ></v-select>                            
+                      </v-col>
+                 </v-row>
 			<v-row justify="center">
 				<v-col sm="12" md="12" lg="12">
-					<v-data-table  :headers="headers" :items="dataList" :search="search" class="elevation-12" :items-per-page="20" :hide-default-footer="true">>
-						
-					
+					<v-data-table  :headers="headers" :items="dataList" :search="search" class="elevation-12" :items-per-page="20" :hide-default-footer="true">
+
 						  <template v-slot:[`item.status`]="{ item }">
                                     <v-switch v-model="item.status" @change="changeStatus(item)" color="primary" inset></v-switch>
                                 </template>
 						<template v-slot:[`item.action`]="{ item }">
-							<v-icon color="blue" v-if="$can('category-list')"  medium @click="editItem(item)" >edit</v-icon>
+							<v-icon color="blue"   medium @click="editItem(item)" >edit</v-icon>
 							<v-icon color="red"  medium @click="deleteItem(item)" >delete</v-icon>
 						</template>
 						<template v-slot:no-data>
@@ -35,7 +52,7 @@
                         <v-pagination
                                 v-model="filters.page"
                                 :length="pageCount"
-                                @input="getTestimonial"
+                                @input="getCategory"
                         ></v-pagination>
                     </div>
 				</v-col>
@@ -52,49 +69,52 @@
 									v-text="formTitle"
 									></v-card-title>
 								</v-card >
-
 								<v-card-text>
 									<v-container grid-list-md>
 										<v-layout wrap>
-											<v-col cols="12">
+											  <v-form
+												ref="form"
+												lazy-validation
+											>
+											<v-select
+												:rules="[v => !!v || 'Category Type is required']"
+												v-model="editedItem.parent_id"
+												:items="dataCategory"
+												item-text="title"
+												item-value="id"
+												outlined
+												label="Select Category Type"
+												dense
+											></v-select>
 												<v-text-field
 													:rules="[v => !!v || 'Title is required']"
 													v-model="editedItem.title"
 													label="Title"
 													 outlined 
-                                                    v-on:keyup="titlemonitor"
+													 dense
 												></v-text-field>
-											</v-col>
-											<v-col cols="12">
-												<v-textarea 
-                                                    v-model="editedItem.description" 
-                                                    label="Description"
-                                                     outlined 
-                                                     v-on:keyup="descriptionmonitor"
-                                                ></v-textarea>
-											</v-col>
-                                            <v-col cols="12">
+												<ckeditor v-model="editedItem.description" :config="editorConfig" class="pb-3"></ckeditor>
+										
 												<v-text-field 
-                                                    v-model="editedItem.meta_title" 
-                                                    label="Meta Title"
+                                                    v-model="editedItem.slug" 
+                                                    label="Slug(leave empty)"
                                                      outlined 
-
+													dense
                                                 ></v-text-field>
-											</v-col>
-                                            <v-col cols="12">
 												<v-text-field 
-                                                    v-model="editedItem.meta_tag" 
-                                                    label="Meta Tag"
+                                                    v-model="editedItem.link" 
+                                                    label="Link"
                                                      outlined 
+													 dense
                                                 ></v-text-field>
-											</v-col>
-                                            <v-col cols="12">
-												<v-textarea 
-                                                    v-model="editedItem.meta_description" 
-                                                    label="Meta Description"
+												<v-text-field 
+                                                    v-model="editedItem.sort" 
+                                                    label="Sort"
                                                      outlined 
-                                                ></v-textarea>
-											</v-col>
+													 dense
+													 hide-details
+                                                ></v-text-field>
+											  </v-form>
 										</v-layout>
 									</v-container>
 								</v-card-text>
@@ -134,12 +154,14 @@ import DeleteModal from "./../../common/DeleteModal";
 import NoDataList from "./../../common/NoDataList"
 import Breadcrumbs from "./../../common/Breadcrumbs"
 import ToolbarLeft from "./../../common/ToolbarLeft"
+import TextField from "./../../common/TextField"
 export default {
 	components: {
 		DeleteModal,
 		NoDataList,
         ToolbarLeft,
-        Breadcrumbs
+        Breadcrumbs,
+		TextField
 	},
 	data: () => ({
 		isImage:false,
@@ -151,12 +173,13 @@ export default {
 		edit: true,
 		dialog: false,
         dataList: [],
+		dataCategory:[],
 		headers: 
 		[
 
 			{ text: "ID", value: "id" },
 			{ text: "Title", value: "title" },
-			{ text: "Description", value: "description" },
+			{ text: "Sort", value: "sort" },
 			{ text: "Status", value: "status" },
 			{ text: "Action", value: "action" }
 		],
@@ -165,9 +188,12 @@ export default {
 		{
 			title: "",
 			description: "",
-            meta_title: "",
-            meta_tag: "",
-            meta_description: "",
+            parent_id: 1,
+            sort: "",
+            link: "",
+            image_id: "",
+            slug: "",
+            deleted_at: "",
 			status: 1,
 		},
 		dataIndex: null,
@@ -178,9 +204,12 @@ export default {
 		{
 			title: "",
 			description: "",
-            meta_title: "",
-            meta_tag: "",
-            meta_description: "",
+            parent_id: 1,
+            sort: "",
+            link: "",
+            image_id: "",
+            slug: "",
+            deleted_at: "",
 			status: 1,
 		},
 		dataStatus: 
@@ -188,14 +217,19 @@ export default {
 			{ name: "Active", value: 1 },
 			{ name: "Disable", value: 0 }
 		],
-
 		filters:
         {
             show:20,
 			page:1,
+			parent_id:'',
+			search:''
         },
-
-		
+		editorConfig: {
+                    allowedContent:true,
+					copyFormatting_allowRules: true,
+                    extraPlugins: ['bidi','justify'],
+					contentsLangDirection : 'ltr',
+                },	
 	}),
 
 	props: 
@@ -219,14 +253,6 @@ export default {
 	},
 	
 	methods: {
-        titlemonitor()
-        {   
-            return this.editedItem.meta_title=this.editedItem.title
-        },
-        descriptionmonitor()
-        {
-            return this.editedItem.meta_description=this.editedItem.description
-        },
 		async changeStatus(i)
 		{
 			this.loading = true;
@@ -263,10 +289,12 @@ export default {
 
 		async initialize() 
 		{
-			this.getTestimonial();        
+			this.getCategory();    
+			this.getAllCategory();        
+
 		},
 
-		async getTestimonial()
+		async getCategory()
 		{
 			this.start();
 			try 
@@ -289,6 +317,15 @@ export default {
 			{
 				this.finish();
 			}
+		},
+
+		async getAllCategory()
+		{
+			let { data } = await axios({
+					method: "get",
+					url: "/app/allcategory",
+				});
+				this.dataCategory = data;
 		},
 
 		editItem(item) 
