@@ -7,6 +7,8 @@ use App\Http\Controllers\CMS\CategoryController;
 use App\Http\Controllers\CMS\RoleController;
 use App\Http\Controllers\CMS\UserController;
 use App\Http\Controllers\CMS\HomeController;
+use App\Http\Controllers\CMS\ImageController;
+use App\Http\Controllers\CMS\ImageFolderController;
 
 
 require __DIR__.'/auth.php';
@@ -32,6 +34,8 @@ Route::middleware(['auth'])->prefix('/app')->group(function () {
     Route::get('allcategory', [CategoryController::class, 'index']);
     Route::resource('user', UserController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('/folder', ImageFolderController::class);
+    Route::resource('/image', ImageController::class);
 });
 
 

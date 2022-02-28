@@ -40,6 +40,8 @@
 
 /*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CategoryList.vue?vue&type=script&lang=js& */
 
+/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ImageGalleryList.vue?vue&type=script&lang=js& */
+
 /*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Profile.vue?vue&type=script&lang=js& */
 
 /*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleList.vue?vue&type=script&lang=js& */
@@ -60,9 +62,13 @@
 
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=42df9c84& */
 
+/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=7635e27e& */
+
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=b372a78c& */
 
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=d993ea14& */
+
+/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ImageGalleryList.vue?vue&type=template&id=4cd92a97& */
 
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Profile.vue?vue&type=template&id=57595c14& */
 
@@ -236,9 +242,15 @@
 
 /*! ./Home.vue?vue&type=template&id=42df9c84& */
 
+/*! ./Home.vue?vue&type=template&id=7635e27e& */
+
 /*! ./Home.vue?vue&type=template&id=b372a78c& */
 
 /*! ./Home.vue?vue&type=template&id=d993ea14& */
+
+/*! ./ImageGalleryList.vue?vue&type=script&lang=js& */
+
+/*! ./ImageGalleryList.vue?vue&type=template&id=4cd92a97& */
 
 /*! ./ImageModule.vue?vue&type=script&lang=js& */
 
@@ -559,6 +571,10 @@
 /*! ./components/dashboard/Blog/BlogReply.vue */
 
 /*! ./components/dashboard/Blog/Home.vue */
+
+/*! ./components/dashboard/ImageGallery/Home.vue */
+
+/*! ./components/dashboard/ImageGallery/ImageGalleryList.vue */
 
 /*! ./components/dashboard/category/CategoryList.vue */
 
@@ -2534,6 +2550,10 @@
   \*****************************************************************/
 
 /*!*****************************************************************!*\
+  !*** ./resources/js/components/dashboard/ImageGallery/Home.vue ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
   !*** ./resources/js/components/dashboard/overview/overview.vue ***!
   \*****************************************************************/
 
@@ -2707,6 +2727,10 @@
 
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/common/LeftBar.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue ***!
   \*****************************************************************************/
 
 /*!*******************************************************************************!*\
@@ -2910,12 +2934,24 @@
   \**********************************************************************************************/
 
 /*!************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/ImageGallery/Home.vue?vue&type=template&id=7635e27e& ***!
+  \************************************************************************************************/
+
+/*!************************************************************************************************!*\
   !*** ./resources/js/components/dashboard/overview/overview.vue?vue&type=template&id=7c996cce& ***!
   \************************************************************************************************/
 
 /*!****************************************************************************************************!*\
   !*** ./resources/js/components/dashboard/category/CategoryList.vue?vue&type=template&id=1e5ac097& ***!
   \****************************************************************************************************/
+
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue?vue&type=template&id=4cd92a97& ***!
+  \************************************************************************************************************/
 
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/mixins/Permissions.vue?vue&type=script&lang=js& ***!
@@ -3086,6 +3122,10 @@
   \**************************************************************************************************************************************************************************************************************************************/
 
 /*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/ImageGallery/Home.vue?vue&type=template&id=7635e27e& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+
+/*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/overview/overview.vue?vue&type=template&id=7c996cce& ***!
   \***************************************************************************************************************************************************************************************************************************************/
 
@@ -3096,6 +3136,14 @@
 /*!********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/material-design-icons-iconfont/dist/material-design-icons.css ***!
   \********************************************************************************************************************************************************************************************************************************************/
+
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue?vue&type=template&id=4cd92a97& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
 
 /**
  * @license
