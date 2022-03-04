@@ -8,26 +8,26 @@
 RewriteBase /
 
     # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    # RewriteCond %{HTTP:Authorization} .
+    # RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    # # Redirect Trailing Slashes If Not A Folder...
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_URI} (.+)/$
+    # RewriteRule ^ %1 [L,R=301]
 
 
 
-    RewriteRule ^get/maximage/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)-(.+)\.(.+)$ files/images/$1/$2/$3/$4-$5/$1$2$3_$4-$5.$6 [L,NC,QSA]
+    RewriteRule ^get/maximage/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)-(.+)\.(.+)$ storage/files/images/$1/$2/$3/$4-$5/$1$2$3_$4-$5.$6 [L,NC,QSA]
     # RewriteRule ^get/maximage/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)\.(.+)$ files/images/$1/$2/$3/$4/$1$2$3_$4.$5 [L,NC,QSA]
 
-    RewriteRule ^pdf-image/max/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)\.(.+)$ files/pdf-thumb/$1/$2/$3/$4/$1$2$3_$4.jpg [L,NC,QSA]
-    RewriteRule ^pdf-image/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)-([0-9]+)-(.+)$ files/pdf-thumb/$1/$2/$3/$4-$5/$1$2$3_$4-$5-$6 [L,NC,QSA]
+    # RewriteRule ^pdf-image/max/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)\.(.+)$ files/pdf-thumb/$1/$2/$3/$4/$1$2$3_$4.jpg [L,NC,QSA]
+    # RewriteRule ^pdf-image/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)-([0-9]+)-(.+)$ files/pdf-thumb/$1/$2/$3/$4-$5/$1$2$3_$4-$5-$6 [L,NC,QSA]
 
-    #if need to disable react pdf viewer we need to comment below and uncmment second line
-    #also inside the webs
-    RewriteRule ^pdf-file/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)\.(.+)$ files/pdfs/$1/$2/$3/$4/$1$2$3_$4.$5 [L,NC,QSA]
-    #RewriteRule ^pdf/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)\.(.+)$ files/pdfs/$1/$2/$3/$4/$1$2$3_$4.$5 [L,NC,QSA]
+    # #if need to disable react pdf viewer we need to comment below and uncmment second line
+    # #also inside the webs
+    # RewriteRule ^pdf-file/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)\.(.+)$ files/pdfs/$1/$2/$3/$4/$1$2$3_$4.$5 [L,NC,QSA]
+    # #RewriteRule ^pdf/([0-9]{4})([0-9]{2})([0-9]{2})_(.+)\.(.+)$ files/pdfs/$1/$2/$3/$4/$1$2$3_$4.$5 [L,NC,QSA]
 
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

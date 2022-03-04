@@ -18,9 +18,9 @@
  * @license MIT
  */
 
-/*! !!../../../css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./materialdesignicons.css */
+/*! !!../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./materialdesignicons.css */
 
-/*! !!../../css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./material-design-icons.css */
+/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./material-design-icons.css */
 
 /*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */
 
@@ -124,13 +124,13 @@
 
 /*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ExampleComponent.vue?vue&type=template&id=299e239e& */
 
-/*! ../../../css-loader/dist/runtime/api.js */
+/*! ../../../laravel-mix/node_modules/css-loader/dist/runtime/api.js */
 
-/*! ../../../css-loader/dist/runtime/getUrl.js */
+/*! ../../../laravel-mix/node_modules/css-loader/dist/runtime/getUrl.js */
 
-/*! ../../css-loader/dist/runtime/api.js */
+/*! ../../laravel-mix/node_modules/css-loader/dist/runtime/api.js */
 
-/*! ../../css-loader/dist/runtime/getUrl.js */
+/*! ../../laravel-mix/node_modules/css-loader/dist/runtime/getUrl.js */
 
 /*! ../../modules/_core */
 
@@ -1097,7 +1097,7 @@
 /*! vuex */
 
 /*!*
-* @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+* @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
 * For licensing, see LICENSE.md.
 */
 
@@ -1554,10 +1554,6 @@
   \*****************************************************/
 
 /*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
 
@@ -1891,10 +1887,6 @@
 
 /*!********************************************************!*\
   !*** ./node_modules/core-js/modules/es7.observable.js ***!
-  \********************************************************/
-
-/*!********************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
   \********************************************************/
 
 /*!********************************************************!*\
@@ -2733,6 +2725,10 @@
   !*** ./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue ***!
   \*****************************************************************************/
 
+/*!******************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js ***!
+  \******************************************************************************/
+
 /*!*******************************************************************************!*\
   !*** ./node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot?v=6.5.95 ***!
   \*******************************************************************************/
@@ -2762,11 +2758,11 @@
   \********************************************************************************/
 
 /*!*********************************************************************************!*\
-  !*** ./node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2?v=6.5.95 ***!
+  !*** ./node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js ***!
   \*********************************************************************************/
 
 /*!*********************************************************************************!*\
-  !*** ./node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js ***!
+  !*** ./node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2?v=6.5.95 ***!
   \*********************************************************************************/
 
 /*!*********************************************************************************!*\
@@ -2775,6 +2771,10 @@
 
 /*!*********************************************************************************!*\
   !*** ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js ***!
+  \*********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/getUrl.js ***!
   \*********************************************************************************/
 
 /*!*********************************************************************************!*\
@@ -2965,10 +2965,6 @@
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/common/Header.vue?vue&type=script&lang=js& ***!
   \********************************************************************************************************************************************************************************************************************/
 
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/@mdi/font/css/materialdesignicons.css ***!
-  \********************************************************************************************************************************************************************************************************************/
-
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/common/LeftBar.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************************************************************************************************************/
@@ -3133,9 +3129,9 @@
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/category/CategoryList.vue?vue&type=template&id=1e5ac097& ***!
   \*******************************************************************************************************************************************************************************************************************************************/
 
-/*!********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/material-design-icons-iconfont/dist/material-design-icons.css ***!
-  \********************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/@mdi/font/css/materialdesignicons.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
 
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue?vue&type=script&lang=js& ***!
@@ -3144,6 +3140,10 @@
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue?vue&type=template&id=4cd92a97& ***!
   \***************************************************************************************************************************************************************************************************************************************************/
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/material-design-icons-iconfont/dist/material-design-icons.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
 
 /**
  * @license

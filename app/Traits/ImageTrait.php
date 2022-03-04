@@ -41,7 +41,7 @@ trait ImageTrait
 
         $path = $this->generate_path($image);
 
-        // dd($path);
+        return ($path);
 
         // if(!file_exists($path))    //check the original image
         // {

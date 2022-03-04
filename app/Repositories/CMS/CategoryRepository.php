@@ -34,7 +34,7 @@ class CategoryRepository
         }
         else
         {
-            $data=$data->get();
+            $data=$data->paginate(20);
         }
         return $data;
     }

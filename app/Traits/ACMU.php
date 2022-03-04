@@ -33,7 +33,7 @@ trait ACMU
 // dd($file_name);
             $sub_folder = $totime . "-" . $salt;
             $path_of_folder = "/files/images/{$year}/{$month}/{$day}/{$sub_folder}/";
-            $path_of_folder_file = "/files/images/{$year}/{$month}/{$day}/{$sub_folder}/{$file_name}";
+            $path_of_folder_file = "/storage/files/images/{$year}/{$month}/{$day}/{$sub_folder}/{$file_name}";
             return $path_of_folder_file;
         } else {
             // return 'no-image'; // commented because of API

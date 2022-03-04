@@ -27,7 +27,19 @@ class ImageRepository
         {
             $data= $data->where('image_folder_id',$request->image_folder_id);
         }
-        $data= $data->paginate(12);
+        if(isset($request->search) && !empty($request->search))
+        {
+            $data=$data->where('title',  $request->search);
+        } 
+        if(isset($request->show) && !empty($request->show))
+        {
+            $show=$request->show;
+            $data=$data->paginate($show);
+        }
+        else
+        {
+            $data=$data->paginate(20);
+        }
         $data->map(function($item){
 
             $item->src = $this->getImage($item->id);
@@ -78,6 +90,7 @@ class ImageRepository
 
                 $date = strtotime($data->created_at);
                 $media->storeAs(('public/files/images/'.date('Y', $date).'/'.date('m', $date).'/'.date('d', $date).'/'.strtotime($data->created_at).'-'.$data->salt.'/'),date('Y', $date).date('m', $date).date('d', $date).'_'. strtotime($data->created_at).'-'.$data->salt.'.'.$data->extension);  
+                $data->src = $this->getImage($data->id);
                 array_push($response['data'],$data);
             }
             DB::commit();

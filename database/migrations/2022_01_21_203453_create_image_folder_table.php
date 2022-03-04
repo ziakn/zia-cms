@@ -13,13 +13,13 @@ class CreateImageFolderTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('imageFolder');
         Schema::create('imageFolder', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('parent_id')->default(0);
             $table->string('title');
             $table->integer('status')->default(1);
-            $table->softDeletes();
 
 
             $table->foreign('user_id')

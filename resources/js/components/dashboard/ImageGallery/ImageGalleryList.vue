@@ -182,13 +182,13 @@
                                                     >Remove</v-list-item-title
                                                 >
                                             </v-list-item>
-                                              <v-list-item
+                                              <!-- <v-list-item
                                                 @click.stop.prevent="GenerateUrl(item)"
                                             >
                                                 <v-list-item-title
                                                     >Generate Url</v-list-item-title
                                                 >
-                                            </v-list-item>
+                                            </v-list-item> -->
                                         </v-list>
                                     </v-menu>
                                 </v-img>
@@ -199,6 +199,13 @@
                             </v-card>
                         </v-col>
                     </v-row>
+                     <div class="text-center">
+                        <v-pagination
+                                v-model="filters.page"
+                                :length="pageCount"
+                                @input="getImages"
+                        ></v-pagination>
+                    </div>
                 </v-container>
             </v-card-text>
 
@@ -265,6 +272,8 @@ export default {
         absolute: true,
         files: [],
         editedIndex: 0,
+        itemsPerPage:1,
+        pageCount:2,
         editFolderItem: {},
         folders: [
             {
@@ -292,7 +301,14 @@ export default {
         formValue: {
             title: "",
             parent_id: 1,
-        }
+        },
+        filters:
+        {
+            show:20,
+			page:1,
+			image_folder_id:'',
+			search:''
+        },
     }),
     methods: {
          GenerateUrl (item) {
@@ -496,25 +512,34 @@ export default {
                 this.snacks("Failed!! " + e, "red");
             }
             
-                try {
+                
+            
+
+        },
+
+        async getImages()
+        {
+            try {
+                    this.filters.image_folder_id= this.formValue.parent_id
                 let { data } = await axios({
                     method: "get",
                     url: "/app/image",
-                    params: {
-                        image_folder_id: this.formValue.parent_id
-                    }
+                    params:  this.filters
                 });
                 this.dataFile = data.data;
+                 this.itemsPerPage=data.per_page;
+                this.pageCount=data.last_page;
+                this.filters.page=data.current_page
                 } catch (e) {
                     this.snacks("Failed!! " + e, "red");
                 }
-            
-
         },
     },
     watch: {},
     created() {
         this.initialize();
+        this.getImages();
+
     }
 };
 </script>
