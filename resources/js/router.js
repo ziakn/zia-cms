@@ -11,6 +11,9 @@ import rolelist from "./components/dashboard/user/RoleList.vue"
 import category from "./components/dashboard/category/Home.vue"
 import categorylist from "./components/dashboard/category/CategoryList.vue"
 
+import amenity from "./components/dashboard/Amenity/Home.vue"
+import amenitylist from "./components/dashboard/Amenity/AmenityList.vue"
+
 import gallery from "./components/dashboard/ImageGallery/Home.vue"
 import gallerylist from "./components/dashboard/ImageGallery/ImageGalleryList.vue"
 
@@ -110,6 +113,30 @@ export default new Router({
                     meta: {
                         icon: "class",
                         title: "Category List",
+                        type: onlyAdmin,
+                        status: true
+                    }
+                },
+            ]
+        },
+        {
+            path: "/amenity",
+            name: "amenity",
+            component: amenity,
+            meta: {
+                icon: "supervisor_account",
+                title: " Amenity",
+                type: onlyAdmin,
+                status: true
+            },
+            children: [
+                {
+                    path: "list",
+                    name: "list",
+                    component: amenitylist,
+                    meta: {
+                        icon: "class",
+                        title: "List",
                         type: onlyAdmin,
                         status: true
                     }

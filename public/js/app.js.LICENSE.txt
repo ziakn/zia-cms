@@ -18,6 +18,8 @@
  * @license MIT
  */
 
+/*! !!../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./all.css */
+
 /*! !!../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./materialdesignicons.css */
 
 /*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./material-design-icons.css */
@@ -33,6 +35,8 @@
 /*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */
 
 /*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Add.vue?vue&type=script&lang=js& */
+
+/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AmenityList.vue?vue&type=script&lang=js& */
 
 /*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BlogList.vue?vue&type=script&lang=js& */
 
@@ -52,6 +56,8 @@
 
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Add.vue?vue&type=template&id=d043a84c& */
 
+/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AmenityList.vue?vue&type=template&id=4ed7a1aa& */
+
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BlogList.vue?vue&type=template&id=41220977& */
 
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BlogReply.vue?vue&type=template&id=14dbc361& */
@@ -61,6 +67,8 @@
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=093685e6& */
 
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=42df9c84& */
+
+/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=4a9a734a& */
 
 /*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=7635e27e& */
 
@@ -164,6 +172,22 @@
 
 /*! ../utils */
 
+/*! ../webfonts/fa-brands-400.ttf */
+
+/*! ../webfonts/fa-brands-400.woff2 */
+
+/*! ../webfonts/fa-regular-400.ttf */
+
+/*! ../webfonts/fa-regular-400.woff2 */
+
+/*! ../webfonts/fa-solid-900.ttf */
+
+/*! ../webfonts/fa-solid-900.woff2 */
+
+/*! ../webfonts/fa-v4compatibility.ttf */
+
+/*! ../webfonts/fa-v4compatibility.woff2 */
+
 /*! ./../../common/Breadcrumbs */
 
 /*! ./../../common/DashboardCard */
@@ -197,6 +221,10 @@
 /*! ./Add.vue?vue&type=script&lang=js& */
 
 /*! ./Add.vue?vue&type=template&id=d043a84c& */
+
+/*! ./AmenityList.vue?vue&type=script&lang=js& */
+
+/*! ./AmenityList.vue?vue&type=template&id=4ed7a1aa& */
 
 /*! ./BlogList.vue?vue&type=script&lang=js& */
 
@@ -241,6 +269,8 @@
 /*! ./Home.vue?vue&type=template&id=093685e6& */
 
 /*! ./Home.vue?vue&type=template&id=42df9c84& */
+
+/*! ./Home.vue?vue&type=template&id=4a9a734a& */
 
 /*! ./Home.vue?vue&type=template&id=7635e27e& */
 
@@ -563,6 +593,10 @@
 /*! ./common/LeftBar */
 
 /*! ./components/ExampleComponent.vue */
+
+/*! ./components/dashboard/Amenity/AmenityList.vue */
+
+/*! ./components/dashboard/Amenity/Home.vue */
 
 /*! ./components/dashboard/Blog/Add.vue */
 
@@ -1053,6 +1087,8 @@
 /*! ./utils */
 
 /*! @babel/runtime/regenerator */
+
+/*! @fortawesome/fontawesome-free/css/all.css */
 
 /*! @mdi/font/css/materialdesignicons.css */
 
@@ -2266,6 +2302,10 @@
   \************************************************************/
 
 /*!************************************************************!*\
+  !*** ./resources/js/components/dashboard/Amenity/Home.vue ***!
+  \************************************************************/
+
+/*!************************************************************!*\
   !*** ./resources/js/components/dashboard/setting/Home.vue ***!
   \************************************************************/
 
@@ -2486,6 +2526,10 @@
   \***************************************************************/
 
 /*!****************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/css/all.css ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
   !*** ./node_modules/core-js/modules/es6.array.reduce-right.js ***!
   \****************************************************************/
 
@@ -2595,6 +2639,10 @@
 
 /*!*******************************************************************!*\
   !*** ./node_modules/core-js/modules/es7.symbol.async-iterator.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/dashboard/Amenity/AmenityList.vue ***!
   \*******************************************************************/
 
 /*!********************************************************************!*\
@@ -2726,8 +2774,16 @@
   \*****************************************************************************/
 
 /*!******************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
   !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js ***!
   \******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf ***!
+  \*******************************************************************************/
 
 /*!*******************************************************************************!*\
   !*** ./node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot?v=6.5.95 ***!
@@ -2746,6 +2802,14 @@
   \*******************************************************************************/
 
 /*!********************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf ***!
+  \********************************************************************************/
+
+/*!********************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2 ***!
+  \********************************************************************************/
+
+/*!********************************************************************************!*\
   !*** ./node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff?v=6.5.95 ***!
   \********************************************************************************/
 
@@ -2759,6 +2823,10 @@
 
 /*!*********************************************************************************!*\
   !*** ./node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js ***!
+  \*********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2 ***!
   \*********************************************************************************/
 
 /*!*********************************************************************************!*\
@@ -2798,6 +2866,10 @@
   \*********************************************************************************/
 
 /*!**********************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2 ***!
+  \**********************************************************************************/
+
+/*!**********************************************************************************!*\
   !*** ./resources/js/components/common/Footer.vue?vue&type=template&id=4e50fea4& ***!
   \**********************************************************************************/
 
@@ -2814,6 +2886,10 @@
   \***********************************************************************************/
 
 /*!************************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
   !*** ./node_modules/material-design-icons-iconfont/dist/material-design-icons.css ***!
   \************************************************************************************/
 
@@ -2824,6 +2900,10 @@
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/common/TextField.vue?vue&type=template&id=6de07654& ***!
   \*************************************************************************************/
+
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2 ***!
+  \**************************************************************************************/
 
 /*!**************************************************************************************!*\
   !*** ./resources/js/components/common/NoDataList.vue?vue&type=template&id=53bc31d2& ***!
@@ -2898,11 +2978,19 @@
   \*******************************************************************************************/
 
 /*!*******************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Amenity/Home.vue?vue&type=template&id=4a9a734a& ***!
+  \*******************************************************************************************/
+
+/*!*******************************************************************************************!*\
   !*** ./resources/js/components/dashboard/setting/Home.vue?vue&type=template&id=42df9c84& ***!
   \*******************************************************************************************/
 
 /*!********************************************************************************************!*\
   !*** ./node_modules/material-design-icons-iconfont/dist/fonts/MaterialIcons-Regular.woff2 ***!
+  \********************************************************************************************/
+
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Amenity/AmenityList.vue?vue&type=script&lang=js& ***!
   \********************************************************************************************/
 
 /*!********************************************************************************************!*\
@@ -2940,6 +3028,10 @@
 /*!************************************************************************************************!*\
   !*** ./resources/js/components/dashboard/overview/overview.vue?vue&type=template&id=7c996cce& ***!
   \************************************************************************************************/
+
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Amenity/AmenityList.vue?vue&type=template&id=4ed7a1aa& ***!
+  \**************************************************************************************************/
 
 /*!****************************************************************************************************!*\
   !*** ./resources/js/components/dashboard/category/CategoryList.vue?vue&type=template&id=1e5ac097& ***!
@@ -3086,6 +3178,10 @@
   \**********************************************************************************************************************************************************************************************************************************/
 
 /*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/Amenity/Home.vue?vue&type=template&id=4a9a734a& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+
+/*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/setting/Home.vue?vue&type=template&id=42df9c84& ***!
   \**********************************************************************************************************************************************************************************************************************************/
 
@@ -3104,6 +3200,10 @@
 /*!***********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/user/UserList.vue?vue&type=template&id=286e5b37& ***!
   \***********************************************************************************************************************************************************************************************************************************/
+
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/Amenity/AmenityList.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************/
 
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/Blog/BlogReply.vue?vue&type=template&id=14dbc361& ***!
@@ -3125,6 +3225,10 @@
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/overview/overview.vue?vue&type=template&id=7c996cce& ***!
   \***************************************************************************************************************************************************************************************************************************************/
 
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/Amenity/AmenityList.vue?vue&type=template&id=4ed7a1aa& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+
 /*!*******************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/category/CategoryList.vue?vue&type=template&id=1e5ac097& ***!
   \*******************************************************************************************************************************************************************************************************************************************/
@@ -3136,6 +3240,10 @@
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************************************************************************************/
+
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/@fortawesome/fontawesome-free/css/all.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
 
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/ImageGallery/ImageGalleryList.vue?vue&type=template&id=4cd92a97& ***!
