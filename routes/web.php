@@ -7,6 +7,7 @@ use App\Http\Controllers\CMS\UserController;
 use App\Http\Controllers\CMS\HomeController;
 use App\Http\Controllers\CMS\ImageController;
 use App\Http\Controllers\CMS\ImageFolderController;
+use App\Http\Controllers\CMS\PropertyController;
 use Illuminate\Support\Facades\Route;
   
 
@@ -38,6 +39,7 @@ Route::middleware(['auth'])->prefix('/app')->group(function () {
     Route::resource('/folder', ImageFolderController::class);
     Route::resource('/image', ImageController::class);
     Route::resource('/amenity', AmenityController::class);
+    Route::resource('/property', PropertyController::class);
 });
 
 

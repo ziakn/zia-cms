@@ -1,10 +1,10 @@
 <template>
     <v-dialog v-model="toggle" persistent>
-        <v-card>
-            <v-toolbar flat color="secondary" dark>
+      <v-card height="90%" >
+            <v-toolbar flat color="primary" dark fixed>
                 <v-toolbar-title>Image Upload</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-btn icon @click="$refs.inputUpload.click()">
+                <v-btn  icon @click="$refs.inputUpload.click()">
                     <v-icon>cloud_upload</v-icon>
                 </v-btn>
                 <input
@@ -20,9 +20,10 @@
                     bottom
                     :close-on-content-click="false"
                     flat
+                    max-width="500"
                 >
                     <template v-slot:activator="{ on }">
-                        <v-btn icon v-on="on">
+                        <v-btn   v-show="currentFolder.title == 'Root'" icon v-on="on">
                             <v-icon>create_new_folder</v-icon>
                         </v-btn>
                     </template>
@@ -34,19 +35,11 @@
                             <v-row>
                                 <v-col cols="12">
                                     <v-text-field
-                                        v-model="formValue.name"
-                                        label="Name"
-                                         outlined 
-                                        dense 
-                                    ></v-text-field>
-                                </v-col>
-                                <v-col cols="12">
-                                    <v-textarea
-                                        v-model="formValue.description"
-                                        label="Description"
-                                         outlined 
+                                        v-model="formValue.title"
+                                        label="Title"
+                                        outlined
                                         dense
-                                    ></v-textarea>
+                                    ></v-text-field>
                                 </v-col>
                             </v-row>
                         </v-card-text>
@@ -54,7 +47,7 @@
                             <v-spacer></v-spacer>
 
                             <v-btn text @click="menu = false">Cancel</v-btn>
-                            <v-btn color="primary" text @click="saveFolder"
+                            <v-btn color="green" text @click="saveFolder"
                                 >Save</v-btn
                             >
                         </v-card-actions>
@@ -68,15 +61,15 @@
                 ></v-card-title>
                 </v-card > -->
             <v-toolbar dense flat>
-                <v-toolbar-title>{{ currentFolder.name }}</v-toolbar-title>
+                <v-toolbar-title>{{ currentFolder.title }} </v-toolbar-title>
 
                 <v-spacer></v-spacer>
-                <v-text-field
+<v-text-field
                     v-model="search"
                     append-icon="search"
                     label="Search"
                     hide-details
-                     outlined 
+                     outlined
                     solo
                     dense
                 ></v-text-field>
@@ -89,7 +82,7 @@
                         "
                         @click="goFolder(item)"
                     >
-                        {{ item.name }}
+                        {{ item.title }}
                     </v-breadcrumbs-item>
                 </template>
             </v-breadcrumbs>
@@ -136,7 +129,7 @@
                                 </v-img>
 
                                 <v-card-subtitle>
-                                    <strong>{{ item.name }}</strong>
+                                    <strong>{{ item.title }}</strong>
                                     <br />
                                     {{ item.description }}
                                 </v-card-subtitle>
@@ -149,6 +142,7 @@
                             lg="2"
                             md="4"
                             @dblclick.stop="selectFile(item)"
+
                         >
                             <v-card>
                                 <v-img :src="item.src" aspect-ratio="1">
@@ -172,7 +166,7 @@
                                                     >select</v-list-item-title
                                                 >
                                             </v-list-item>
-<!-- 
+<!--
                                             <v-list-item
                                                 @click="editItem(item, i)"
                                             >
@@ -187,30 +181,34 @@
                                                     >Remove</v-list-item-title
                                                 >
                                             </v-list-item>
+                                              <!-- <v-list-item
+                                                @click.stop.prevent="GenerateUrl(item)"
+                                            >
+                                                <v-list-item-title
+                                                    >Generate Url</v-list-item-title
+                                                >
+                                            </v-list-item> -->
                                         </v-list>
                                     </v-menu>
                                 </v-img>
 
                                 <v-card-subtitle>
-                                    {{ item.name }}
+                                    {{ item.title }}
                                 </v-card-subtitle>
                             </v-card>
                         </v-col>
                     </v-row>
+                     <div class="text-center">
+                        <v-pagination
+                                v-model="filters.page"
+                                :length="pageCount"
+                                @input="getImages"
+                        ></v-pagination>
+                    </div>
                 </v-container>
             </v-card-text>
 
-            <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="red darken-1" text @click="cancel">Cancel</v-btn>
-                <!-- <v-btn
-                    color="primary"
-                    :loading="loading"
-                    :disabled="loading"
-                    text
-                    
-                >Save</v-btn> -->
-            </v-card-actions>
+
         </v-card>
         <DeleteModal
             :trigger="isDelete"
@@ -230,20 +228,11 @@
                         <v-row>
                             <v-col cols="12">
                                 <v-text-field
-                                    v-model="editFolderItem.name"
-                                    label="Name*"
-                                    :rules="[v => !!v || 'Name is required']"
-                                     outlined 
-                                        dense
+                                    v-model="editFolderItem.title"
+                                    label="Title"
+                                    :rules="[v => !!v || 'Title is required']"
+                                    outlined
                                 ></v-text-field>
-                            </v-col>
-                            <v-col cols="12">
-                                <v-textarea
-                                    v-model="editFolderItem.description"
-                                    label="Description"
-                                     outlined 
-                                        dense
-                                ></v-textarea>
                             </v-col>
                         </v-row>
                     </v-container>
@@ -277,18 +266,21 @@ export default {
     components: {
         DeleteModal
     },
-    data: () => ({
+  data: () => ({
+        absolute: true,
         files: [],
         editedIndex: 0,
+        itemsPerPage:1,
+        pageCount:2,
         editFolderItem: {},
         folders: [
             {
-                name: "Root",
+                title: "Root",
                 id: 1
             }
         ],
         currentFolder: {
-            name: "Root"
+            title: "Root"
         },
         search: "",
         isDelete: false,
@@ -305,12 +297,24 @@ export default {
             id: ""
         },
         formValue: {
-            name: "",
-            description: "",
-            parent_id: 1
-        }
+            title: "",
+            parent_id: 1,
+        },
+        filters:
+        {
+            show:20,
+			page:1,
+			image_folder_id:'',
+			search:''
+        },
     }),
     methods: {
+         GenerateUrl (item) {
+
+
+          this.search = window.location.origin + item.src
+
+        },
         cancel() {
             this.$emit("cancel");
         },
@@ -366,10 +370,11 @@ export default {
             this.isEdit = true;
         },
         goFolder(item) {
-            this.formValue.parent_id = item.id;
+            this.formValue.parent_id = 1;
             this.currentFolder = item;
+            this.dataFile =[];
             this.initialize();
-            console.log("folder");
+            console.log("folder back");
             let index = this.folders.indexOf(item);
             this.folders.splice(index + 1, this.folders.length - index);
             console.log(index);
@@ -410,7 +415,7 @@ export default {
             this.deleteSystem.type = "folder";
             this.deleteSystem.id = item.id;
             this.deleteTitle =
-                "Are you sure you want to delete folder '" + item.name + "'?";
+                "Are you sure you want to delete folder '" + item.title + "'?";
             this.isDelete = !this.isDelete;
         },
         removeFile(item, index) {
@@ -418,7 +423,7 @@ export default {
             this.deleteSystem.type = "file";
             this.deleteSystem.id = item.id;
             this.deleteTitle =
-                "Are you sure you want to delete folder '" + item.name + "'?";
+                "Are you sure you want to delete folder '" + item.title + "'?";
             this.isDelete = !this.isDelete;
         },
         async updateFolder() {
@@ -430,10 +435,9 @@ export default {
                     data: this.editFolderItem
                 });
                 if (data.status) {
-                    Object.assign(
-                        this.dataFolder[this.editedIndex],
-                        this.editFolderItem
-                    );
+                    console.log(data)
+                    Object.assign(this.dataFolder[this.editedIndex],  this.editFolderItem);
+
                     this.snacks("Successfully Added", "green");
                     this.close();
                 } else {
@@ -498,32 +502,42 @@ export default {
                     method: "get",
                     url: "/app/folder",
                     params: {
-                        parent_id: this.formValue.parent_id
+                        parent_id: this.formValue.parent_id,
                     }
                 });
                 this.dataFolder = data;
             } catch (e) {
                 this.snacks("Failed!! " + e, "red");
             }
+            
+                
+            
+
+        },
+
+        async getImages()
+        {
             try {
+                    this.filters.image_folder_id= this.formValue.parent_id
                 let { data } = await axios({
                     method: "get",
                     url: "/app/image",
-                    params: {
-                        image_folder_id: this.formValue.parent_id
-                    }
+                    params:  this.filters
                 });
-                this.dataFile = data;
-            } catch (e) {
-                this.snacks("Failed!! " + e, "red");
-            }
-        }
+                this.dataFile = data.data;
+                 this.itemsPerPage=data.per_page;
+                this.pageCount=data.last_page;
+                this.filters.page=data.current_page
+                } catch (e) {
+                    this.snacks("Failed!! " + e, "red");
+                }
+        },
     },
     watch: {},
     created() {
         this.initialize();
+        this.getImages();
+
     }
 };
 </script>
-
-<style></style>

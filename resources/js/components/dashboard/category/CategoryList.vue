@@ -1,4 +1,4 @@
-<template>
+property<template>
 	<v-main>
 		<v-container fluid>
 			<v-overlay :value="showFullLoading" :absolute="absolute">
@@ -325,7 +325,7 @@ export default {
 					method: "get",
 					url: "/app/allcategory",
 				});
-				this.dataCategory = data;
+				this.dataCategory = data.data;
 		},
 
 		editItem(item) 
@@ -387,7 +387,7 @@ export default {
 			{
 				try 
 				{
-					
+					console.log(this.editedItem)
 					let { data } = await axios({
 						method: "post",
 						url: "/app/category",

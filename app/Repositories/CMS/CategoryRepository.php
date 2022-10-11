@@ -52,7 +52,7 @@ class CategoryRepository
             $response["data"]=Category::create([
             'title' => $request->title,
             'description' => $request->description,
-            'parent_id' => $request->parent_id,
+            'parent_id' => $request->parent_id??1,
             'status' => 1,
             'link' => $request->link,
             'image_id' => $request->image_id,

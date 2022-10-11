@@ -11,6 +11,12 @@ import rolelist from "./components/dashboard/user/RoleList.vue"
 import category from "./components/dashboard/category/Home.vue"
 import categorylist from "./components/dashboard/category/CategoryList.vue"
 
+import property from "./components/dashboard/property/Home.vue"
+import propertylist from "./components/dashboard/property/propertylist.vue"
+import propertyadd from "./components/dashboard/property/Add.vue"
+import propertyedit from "./components/dashboard/property/Edit.vue"
+import propertypending from "./components/dashboard/property/propertylist.vue"
+
 import amenity from "./components/dashboard/Amenity/Home.vue"
 import amenitylist from "./components/dashboard/Amenity/AmenityList.vue"
 
@@ -113,6 +119,63 @@ export default new Router({
                     meta: {
                         icon: "class",
                         title: "Category List",
+                        type: onlyAdmin,
+                        status: true
+                    }
+                },
+            ]
+        },
+        {
+            path: "/property",
+            name: "property",
+            component: property,
+            meta: {
+                icon: "supervisor_account",
+                title: " Property",
+                type: onlyAdmin,
+                status: true
+            },
+            children: [
+                {
+                    path: "list",
+                    name: "propertylist",
+                    component: propertylist,
+                    meta: {
+                        icon: "class",
+                        title: "List",
+                        type: onlyAdmin,
+                        status: true
+                    }
+                },
+                {
+                    path: "add",
+                    name: "propertyadd",
+                    component: propertyadd,
+                    meta: {
+                        icon: "class",
+                        title: "Add",
+                        type: onlyAdmin,
+                        status: true
+                    }
+                },
+                {
+                    path: "edit/:id",
+                    name: "propertyedit",
+                    component: propertyedit,
+                    meta: {
+                        icon: "class",
+                        title: "Edit",
+                        type: onlyAdmin,
+                        status: false
+                    }
+                },
+                {
+                    path: "pending",
+                    name: "propertypending",
+                    component: propertypending,
+                    meta: {
+                        icon: "class",
+                        title: "Pending",
                         type: onlyAdmin,
                         status: true
                     }

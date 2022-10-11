@@ -1,5 +1,5 @@
 <template>
-	<v-content>
+	<v-main>
 		<v-container fluid>
 			<v-overlay :value="showFullLoading" :absolute="absolute">
 				<v-progress-circular indeterminate size="64"></v-progress-circular>
@@ -95,7 +95,7 @@
 		<v-btn bottom color="blue darken-3" dark fab fixed right @click="dialog = !dialog">
 			<v-icon>mdi-plus</v-icon>
 		</v-btn>
-	</v-content>
+	</v-main>
 </template>
 
 <script>

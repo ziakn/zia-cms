@@ -355,7 +355,7 @@ class '.$name.'Repository
 
     private function createMigration($name)
     {
-        Artisan::call('make:migration create_'.lcfirst($name).'_table --create='.lcfirst($name));
+        Artisan::call('make:migration create_'.strtolower($name).'_table --create='.strtolower($name));
         $this->info("{$name} Migration  created successfully ");
     }
 
